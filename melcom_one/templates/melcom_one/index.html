@@ -1,0 +1,69 @@
+{% extends 'melcom_one/base.html' %}
+{% load static %}
+
+ {% block content %}
+  
+        <!--===================================== 
+          **************************************
+          MAIN CONTENT
+          **************************************
+         =====================================-->
+        <main>
+          <div class="mx-auto flex item-center">
+            <div class="left-container1 mb-8 md:w-2/3">
+              <div class="p-6 pr-0">
+              
+                <div id="main" class="card">
+                  <div>
+                    <div id="check" class="checks bg-gray-400"style="width: 100%; height: 480px;" >
+                      <div class="player" >
+                        <video controls style="width: 100%; height: 480px;" class="iframe-player">
+                          <source src="{% static 'video/sintel-short.mp4' %}" type="video/mp4">
+                          <source src="{% static 'video/sintel-short.mp4' %}" type="video/webm">
+                          <!-- fallback content here -->
+                        </video>
+                              <div class="controls">
+                                <button class="play" data-icon="P" aria-label="play pause toggle"></button>
+                                <button class="stop" data-icon="S" aria-label="stop"></button>
+                                <div class="timer"><div></div><span aria-label="timer"></span></div>
+                                <button class="rwd" data-icon="B" aria-label="rewind"></button>
+                                <button class="fwd" data-icon="F" aria-label="fast forward"></button>
+                              </div>
+                      </div>
+                    </div>
+
+                    <div class="selected-vid-description pt-4 text-xl font-medium">
+                      <span class="video-title">
+                       
+                      </span>
+              
+                      <span class="video-subtitle">
+                       
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+          <div class="right-videos-container1 md:w-1/3 ml-4">
+
+              <div class="container p-6">
+
+       <select class="form-select" aria-label="Default select example" name="mel">
+            {%if media %}
+              {%for i in media %}
+                <option value="1">{{i}}</option>
+              {%endfor%}
+           {%endif%}
+            </select >
+          
+     
+               {% include 'function.html' %}
+</div>
+          </div>
+        </main>
+ 
+    {% endblock %}
+   
