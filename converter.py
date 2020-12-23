@@ -3,6 +3,10 @@ import subprocess
 ex_1 = '.dav'
 ex_2 = '.mp4'
 
+#====================================================#
+# this is the converter that performs the convertion #
+#====================================================#
+
 def convert_tool(src_dir,dst_dir):
     for root, dirs, files in os.walk(src_dir):
         for f in files:

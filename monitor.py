@@ -6,11 +6,16 @@ from converter import convert_tool
 
 
 
-#g
+#*************************************#
+# this is a the file destination      #
+#*************************************#
 
 src_dir ="../test_folder"
 dst_dir ="./media"
 
+#***********************************#
+# This demon monitors the system   #
+#**********************************#
 def on_created(event):
     convert_tool(src_dir,dst_dir)
 def on_deleted(event):
@@ -33,9 +38,9 @@ if __name__=="__main__":
     observer.start()
     try:
         print("Monitoring")
-        while True: 
+        while True:
             time.sleep(1)
-  
+
     except KeyboardInterrupt:
         observer.stop()
         print("Done")
