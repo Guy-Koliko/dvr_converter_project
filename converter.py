@@ -1,7 +1,6 @@
-
 import os
 import subprocess
-ex_1 = '.dat'
+ex_1 = '.dav'
 ex_2 = '.mp4'
 
 def convert_tool(src_dir,dst_dir):

@@ -16,11 +16,11 @@ controls.style.visibility = 'visible';
 play.addEventListener('click', playPauseMedia);
 
 function playPauseMedia() {
-  if(media.paused) {
-    play.setAttribute('data-icon','u');
+  if (media.paused) {
+    play.setAttribute('data-icon', 'u');
     media.play();
   } else {
-    play.setAttribute('data-icon','P');
+    play.setAttribute('data-icon', 'P');
     media.pause();
   }
 }
@@ -31,9 +31,9 @@ media.addEventListener('ended', stopMedia);
 function stopMedia() {
   media.pause();
   media.currentTime = 0;
-  play.setAttribute('data-icon','P');
+  play.setAttribute('data-icon', 'P');
 }
-#Seeking back and forth
+Seeking ,back, and forth;
 rwd.addEventListener('click', mediaBackward);
 fwd.addEventListener('click', mediaForward);
 
@@ -44,7 +44,7 @@ function mediaBackward() {
   clearInterval(intervalFwd);
   fwd.classList.remove('active');
 
-  if(rwd.classList.contains('active')) {
+  if (rwd.classList.contains('active')) {
     rwd.classList.remove('active');
     clearInterval(intervalRwd);
     media.play();
@@ -60,7 +60,7 @@ function mediaForward() {
   clearInterval(intervalRwd);
   rwd.classList.remove('active');
 
-  if(fwd.classList.contains('active')) {
+  if (fwd.classList.contains('active')) {
     fwd.classList.remove('active');
     clearInterval(intervalFwd);
     media.play();
@@ -72,7 +72,7 @@ function mediaForward() {
 }
 
 function windBackward() {
-  if(media.currentTime <= 3) {
+  if (media.currentTime <= 3) {
     rwd.classList.remove('active');
     clearInterval(intervalRwd);
     stopMedia();
@@ -82,7 +82,7 @@ function windBackward() {
 }
 
 function windForward() {
-  if(media.currentTime >= media.duration - 3) {
+  if (media.currentTime >= media.duration - 3) {
     fwd.classList.remove('active');
     clearInterval(intervalFwd);
     stopMedia();
@@ -113,7 +113,7 @@ function setTime() {
   let mediaTime = minuteValue + ':' + secondValue;
   timer.textContent = mediaTime;
 
-  let barLength = timerWrapper.clientWidth * (media.currentTime/media.duration);
+  let barLength = timerWrapper.clientWidth * (media.currentTime / media.duration);
   timerBar.style.width = barLength + 'px';
 }
 

@@ -1,0 +1,78 @@
+  {% extends 'melcom_one/base.html' %}
+{% load static %}
+
+ {% block content %}
+        <main>
+          <div class="mx-auto flex item-center">
+            <div class="left-container1 mb-8 md:w-2/3">
+              <div class="p-6 pr-0">
+              
+                <div id="main" class="card">
+                  <div>
+                    <div id="check" class="checks bg-gray-400"style="width: 100%; height: 480px;" >
+                      <div class="player" >
+                        <video controls style="width: 100%; height: 480px;" class="iframe-player">
+                          <source src="#" type="video/mp4">
+                          <source src="#" type="video/webm">
+                          <!-- video icon -->
+                        </video>
+                              <div class="controls">
+                                <button class="play" data-icon="P" aria-label="play pause toggle"></button>
+                                <button class="stop" data-icon="S" aria-label="stop"></button>
+                                <div class="timer"><div></div><span aria-label="timer"></span></div>
+                                <button class="rwd" data-icon="B" aria-label="rewind"></button>
+                                <button class="fwd" data-icon="F" aria-label="fast forward"></button>
+                              </div>
+                      </div>
+                    </div>
+
+                    <div class="selected-vid-description pt-4 text-xl font-medium">
+                      <span class="video-title">
+                       
+                      </span>
+              
+                      <span class="video-subtitle">
+                       
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+          <div class="right-videos-container1 md:w-1/3 ml-4">
+           <form action="{% url 'filter' %}" method="post">
+  {% csrf_token %}
+    <input type="text" id="stime" name="starttime" placeholder="Start time.">
+    <input type="text" id="stime" name="endtime" placeholder="End time.">
+    <input type="text" id="datess" name="dates" placeholder="Start date (yyyy-mm-dd)">
+    <input type="text" id="datess" name="edates" placeholder="End date (yyyy-mm-dd")>
+    <input type="text" id="channel" name="channel" placeholder="Channel(ch1)"> 
+
+    <input type="submit" value="Submit" >
+
+  </form>
+          <div class="container p-6">
+           
+              <div id="main1" class="card">
+                  <span class="text-xl font-medium mb-6 block" style="margin-right:auto;margin-left:auto">PlayList</span>
+                {% if data %}
+                    {% for image in data %}
+               
+                  <div id="video1" class="video flex mb-4">
+                    <video width="100" height="100"
+                    class="w-40 h-25 mr-4 pointer-events-none"
+                    src="{{ MEDIA_URL }}{{ image }}" ></video>
+                    <div class="video-description pointer-events-none">
+                    <div class="wrap-text">
+                      <h6 class="text-xl font-normal">{{image}}</h6>
+                    </div>
+                    </div>
+                  </div>
+              {% endfor %}
+              {% endif %}
+</div>
+          </div>
+        </main>
+   {% endblock %}

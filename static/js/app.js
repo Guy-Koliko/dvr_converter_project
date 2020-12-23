@@ -15,14 +15,10 @@ function getVideoData(e) {
     const iframe = e.target.firstElementChild;
     const videoUrl = iframe.getAttribute('src');
     const videoTitle = iframe.nextElementSibling.firstElementChild.textContent;
-    const videoSubTitle =
-      iframe.nextElementSibling.firstElementChild.nextElementSibling
-        .textContent;
 
     const videoInfo = {
       videoUrl,
       videoTitle,
-      videoSubTitle,
     };
 
     prepareFrame(videoInfo);

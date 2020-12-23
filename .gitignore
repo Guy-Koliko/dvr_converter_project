@@ -1,0 +1,26 @@
+#ignore all media files
+*.mp4
+*.mp3
+*.web
+*.mpeg
+
+#ignore all vscode generated files
+*.vscode
+
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# Environments 
+.env 
+.venv 
+env/ 
+venv/ 
+ENV/ 
+env.bak/ 
+venv.bak/ 
+wheels/ 

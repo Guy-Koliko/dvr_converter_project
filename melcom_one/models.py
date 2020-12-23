@@ -1,11 +1,19 @@
+from os import name
 from django.db import models
 
 # Creating my video database 
 
-class Video(models.Model):
-    id = models.AutoField(default=1,primary_key=True)
-    name = models.CharField(max_length=500)
-    # videofile = models.FileField(upload_to='video/',null=True,verbose_name="")
+class BackEndThings(models.Model):
+    channel_name = models.CharField(max_length=100)
+    source_folder = models.CharField(max_length=100)
+    old_file_format = models.CharField(max_length=6)
+    new_file_format = models.CharField(max_length=6)
     
     def __str__(self):
-        return self.name 
+        return self.channel_name
+
+class DataBaseUPdate(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
